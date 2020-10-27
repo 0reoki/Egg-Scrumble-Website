@@ -1,2 +1,2 @@
 # Egg Scrumble Website
- A project as 3rd year college students
+ A college project for our subject IT Professional Elective 1 
