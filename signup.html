@@ -6,13 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>EggBook - Log In</title>
+    <title>EggBook - Sign Up</title>
 
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-    <!-- Our CSS -->
+    <!-- My CSS -->
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
@@ -22,17 +21,14 @@
 
 <body>
 
-    <div class="wrapper">
-        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 col-12  container-fluid">
-            <section id="panel-container-login">
+    <div id="wrapper">
+        <div style="min-height: inherit;" class="col-lg-8 col-md-8 col-sm-12 col-xs-12 col-12 container-fluid p-5">
+            <section id="content-container-login">
                 <div class="row">
-                    <h3 style="margin-left: 3vw; font-weight: 600;" class="mx-auto"> SIGNUP </h3>
+                    <h3 class="title mx-auto pb-4"> SIGN UP </h3>
                 </div>
-                <hr style="border: 1px solid #5E6B7F"/>
-                
-                <!-- ------------------------------- -->
 
-                <form name="SignUpForm">  
+                <form>  
                     <div class="form-group pl-2 pr-2">  
                         <label for="exampleInputEmail1">First Name*</label>  
                         <input type="text" class="form-control" id="exampleInputFirstNameID" placeholder="Example: Joseph">  
@@ -41,7 +37,7 @@
 
                     <div class="form-group pl-2 pr-2">  
                         <label for="exampleInputEmail1">Last Name*</label>  
-                        <input type="text" class="form-control" id="exampleInputLastNameID" placeholder="Example: Arias">
+                        <input type="text" class="form-control" id="exampleInputLastNameID" placeholder="Example: Arias">  
                         <p id="LastNameRequired"></p>  
                     </div>  
 
@@ -52,7 +48,7 @@
                     </div>  
 
                     <div class="form-group pl-2 pr-2">  
-                        <label for="exampleInputEmail1">Password</label>  
+                        <label for="exampleInputEmail1">Password*</label>  
                         <input type="password" class="form-control" id="exampleInputPassword" placeholder="Password" required>  
                         <p id="PasswordRequired"></p>
                     </div>  
@@ -76,8 +72,22 @@
                 </form>
             </section>
         </div>
-    </div>
 
+        <footer>
+            <div class="container-fluid">
+                <div class="row row-flex">
+                    <div class="col-md-6">
+                        <p class="text-dark">Copyright © 2020 - EggScrumble</p>
+                    </div>
+                    <div class="col-md-6 text-md-right">
+                        <a href="#" class="text-dark">Terms of Use</a> 
+                        <span class="text-dark mx-2">|</span> 
+                        <a href="https://github.com/KuyaChoseph/Egg-Scrumble-Website" class="text-dark">Github Link</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
 
     <!-- jQuery CDN - Slim version (=without AJAX) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -85,7 +95,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
     <!-- Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-
 </body>
 
 </html>
