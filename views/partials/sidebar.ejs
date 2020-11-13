@@ -1,0 +1,56 @@
+<div id="wrapper">
+    <!-- Sidebar -->
+    <nav id="sidebar">
+        <div id="dismiss">
+            <div class="container-fluid">
+                <i class="fas fa-arrow-left"></i>
+            </div>
+        </div>
+
+        <div class="sidebar-header">
+            <% if (user) { %>
+                <h3><%= user.first_name%> <%= user.last_name %></h3>
+                <h7>Account Settings</h7>
+            <% } else { %> 
+                <h3>Guest user</h3>
+            <% } %> 
+        </div>
+    
+        <ul class="list-unstyled components">
+            <li>
+                <a href="#">Order History</a>
+            </li>
+            <li>
+                <a href="#">My Details</a>
+            </li>
+            <li class="dropdown">
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">E-book
+                    Information</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <li>
+                        <a href="#">My E-Books</a>
+                    </li>
+                    <li>
+                        <a href="#">My Wishlists</a>
+                    </li>
+                    <li>
+                        <a href="#">My Pre-Orders</a>
+                    </li>
+                    <li>
+                        <a href="#">My Gift Certificates</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">About</a>
+            </li>
+        </ul>
+        <ul class="list-unstyled components">
+            <% if (user) { %>
+                <li><a href="/logout">Log out</a></li>
+            <% } else { %> 
+                <li><a href="/login">Log In</a></li>
+                <li><a href="/signup">Sign Up</a></li>
+            <% } %> 
+        </ul>
+    </nav>

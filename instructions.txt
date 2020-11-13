@@ -1,0 +1,9 @@
+run ff. commands on terminal with same directory:
+for setup:
+1. npm init
+2. npm install
+3. npm install nodemon -g
+
+for running:
+1. nodemon app
+2. type localhost:3000 at browser

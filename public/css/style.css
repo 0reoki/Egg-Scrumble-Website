@@ -1,0 +1,321 @@
+@import "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fredoka+One&family=Anton&family=Montserrat&display=swap";
+
+/* General style */
+#wrapper {
+  background: #398eb2;
+  color: #e4e9f4;
+  display: block;
+  min-height: 100vh;
+}
+
+.title {
+  color: #f1af20;
+  font-family: "Fredoka One", cursive;
+  font-size: 2em;
+  font-weight: 600;
+  letter-spacing: 2px;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #06397d;
+}
+
+#container {
+  color: #e4e9f4;
+  background: #398eb2;
+  padding-bottom: 10vh;
+}
+
+#content-container {
+  color: #000;
+  background: #e4e9f4;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.3em;
+  padding: 40px;
+  position: relative;
+  transition: all 0.3s;
+}
+
+#content-container-login {
+  background: #e4e9f4;
+  border-radius: 20px;
+  border: 10px groove #f1af20;
+  color: #000;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.3em;
+  padding: 40px;
+  transition: all 0.3s;
+}
+
+footer {
+  bottom: 0;
+  position: relative;
+}
+
+/* Sidebar style */
+#dismiss {
+  height: 35px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 35px;
+}
+
+#sidebar {
+  background: #e4e9f48c;
+  color: #06397d;
+  height: 100vh;
+  left: 0;
+  margin-left: -250px;
+  max-width: 250px;
+  min-width: 250px;
+  position: fixed;
+  top: 0;
+  transition: all 0.3s;
+  z-index: 9999;
+}
+
+#sidebar.active {
+  border-right: 2px solid #06397d;
+  margin-left: 0px;
+  max-width: 250px;
+  min-height: 100vh;
+  min-width: 250px;
+}
+
+a[data-toggle="collapse"] {
+  position: relative;
+}
+
+.dropdown-toggle::after {
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+}
+
+#sidebar a,
+#sidebar a:hover,
+#sidebar a:focus {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+#sidebar .sidebar-header {
+  background: #e4e9f48c;
+  border-bottom: 2px solid #06397d;
+  padding: 20px;
+}
+
+#sidebar ul.components {
+  border-bottom: 2px solid #06397d;
+  padding: 20px 0;
+}
+
+#sidebar ul p {
+  color: #06397d;
+  padding: 10px;
+}
+
+#sidebar ul li a {
+  display: block;
+  font-size: 1.1em;
+  padding: 10px;
+}
+
+#sidebar ul li a:hover {
+  background: #06397d;
+  color: #e4e9f4;
+}
+
+#sidebar ul li.active > a,
+a[aria-expanded="true"] {
+  background: #e4e9f48c;
+  color: #e4e9f4;
+}
+
+#sidebar ul ul a {
+  background: #e4e9f48c;
+  font-size: 0.9em !important;
+  padding-left: 30px !important;
+}
+
+/* Navbar style */
+.navbar-light .navbar-brand,
+.navbar-light .navbar-text {
+  color: #f1af20;
+  font-family: "Anton", sans-serif;
+  font-size: 3.5vh;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #e4e9f4;
+  border-radius: 1vw;
+  font-family: "Anton", sans-serif;
+  font-size: 3.5vh;
+}
+
+.navbar-light .navbar-nav .nav-item.active {
+  background-color: inherit;
+  color: #f1af20;
+  font-family: "Anton", sans-serif;
+  font-size: 3.5vh;
+  transition: all 0.3s;
+}
+
+.navbar-light .navbar-nav .nav-item:hover {
+  background-color: inherit;
+  color: #06397d;
+  min-width: 1.3vw;
+  min-height: 1.75vh;
+  transition: all 0.3s;
+}
+
+/* Button style */
+.btn-secondary {
+  background-color: #757575;
+  color: #e4e9f4;
+  font-family: "Anton", sans-serif;
+  font-size: 3.5vh;
+  transition: all 0.3s;
+}
+
+.btn-secondary:hover,
+.btn-secondary:active,
+.btn-secondary:focus,
+.btn-secondary.active {
+  background: #f1af20;
+  color: #06397d;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.btn-success {
+  background-color: #398eb2;
+  border-radius: 10px;
+  color: #e4e9f4;
+  font-family: "Bebas Neue", cursive;
+  font-size: 1.5vw;
+  transition: all 0.3s;
+}
+
+.btn-success:hover,
+.btn-success:active,
+.btn-success:focus,
+.btn-success.active {
+  background: #f1af20;
+  color: #06397d;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.btn-danger {
+  background-color: #398eb2;
+  border-radius: 10px;
+  color: #e4e9f4;
+  font-family: "Bebas Neue", cursive;
+  font-size: 1.5vw;
+  transition: all 0.3s;
+}
+
+.btn-danger:hover,
+.btn-danger:active,
+.btn-danger:focus,
+.btn-danger.active {
+  background: #911f1e;
+  color: #f1af20;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.btn-sm {
+  border-radius: 10px;
+  margin-right: 5px;
+  width: 5vw !important;
+}
+
+.btn-xl {
+  border-radius: 10px;
+  font-size: 20px;
+  padding: 10px 20px;
+  width: 100%;
+}
+
+.btn-success,
+.btn-success:hover {
+  border-color: #398eb2;
+}
+
+.btn-danger {
+  border-color: #398eb2;
+}
+
+/* Items Style */
+.items-style {
+  color: black !important;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.9vh;
+}
+
+.book-title-style a,
+.book-title-style a:hover {
+  color: #06397d !important;
+  font-family: "Bebas Neue", cursive;
+  font-size: 2rem;
+  text-decoration-color: #06397d;
+  transition: all 0.3s;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #06397d;
+}
+
+.author-style a,
+.author-style a:hover {
+  color: #000 !important;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.3rem;
+  transition: all 0.3s;
+}
+
+.items-style > div > p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.3em;
+}
+
+.items-style > div > p > a {
+  color: #398eb2;
+  font-family: "Montserrat", sans-serif;
+  transition: 0.3s;
+}
+
+.items-style > div > p > a:hover {
+  color: #06397d;
+  font-family: "Montserrat", sans-serif;
+  transition: 0.3s;
+}
+
+.image-style {
+  float: left;
+  max-width: 100%;
+  max-height: 100%;
+  padding-right: 10px;
+}
+
+.icon-bar {
+  position: relative;
+}
+
+.icon-bar h2 {
+  font-family: "Bebas Neue", cursive;
+  font-size: 3rem;
+}
+
+/* Style the icon bar links */
+.icon-bar a {
+  color: #757575;
+  display: block;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.3rem;
+  padding-top: 0.5vh;
+  text-align: left;
+  transition: all 0.3s ease;
+}
