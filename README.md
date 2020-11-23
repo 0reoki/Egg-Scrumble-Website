@@ -34,7 +34,7 @@ To run in localhost:
 To run in web:
 1) Create acc on heroku 
 (heroku.com) - Heroku is a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
-2) Install also heroku cli at their site
+2) Install also heroku cli
 3) Open project folder at vs code and go to terminal of prj file
 4) run: npm install heroku -g
    heroku login (input credentials or will proceed to confirmation page to login)
