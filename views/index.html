@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EggBook</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- My CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+    <!-- Font Awesome JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/solid.min.js" integrity="sha512-JkeOaPqiSsfvmKzJUsqu7j2fv0KSB6Yqb1HHF0r9FNzIsfGv+zYi4h4jQKOogf10qLF3PMZEIYhziCEaw039tQ==" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <nav id="sidebar">
+            <div id="dismiss">
+                <div class="container-fluid">
+                    <i class="fas fa-arrow-left"></i>
+                </div>
+            </div>
+
+            <div class="sidebar-header">
+                <h3>Joseph Arias</h3>
+                <h7>Account Settings</h7>
+            </div>
+
+            <ul class="list-unstyled components">
+                <li>
+                    <a href="#">Order History</a>
+                </li>
+                <li>
+                    <a href="#">My Details</a>
+                </li>
+                <li class="dropdown">
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">E-book Information</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <a href="#">My E-Books</a>
+                        </li>
+                        <li>
+                            <a href="#">My Wishlists</a>
+                        </li>
+                        <li>
+                            <a href="#">My Pre-Orders</a>
+                        </li>
+                        <li>
+                            <a href="#">My Gift Certificates</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                </li>
+            </ul>
+            <ul class="list-unstyled components">
+                <li>
+                    <a href="login.html">Log In</a>
+                </li>
+                <li>
+                    <a href="signup.html">Sign Up</a>
+                </li>
+            </ul>
+        </nav>
+    
+        <!-- Page Content -->
+        <div id="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+                <div class="container-fluid">
+                    <button type="button" id="sidebarCollapse" class="btn bg-transparent">
+                        <i class="fas fa-cog" style="color: #f1af20;"></i>
+                    </button>  
+                    
+                    <div class="row row-flex">
+                        <h1 class="title mr-2 ml-3">EggBook</h1>
+                        <span class="fa-stack" style="vertical-align: top;">
+                            <i class="fas fa-egg fa-stack-1x" style="color: #e4e9f4; font-size: 2.2em;"></i>
+                            <i class="fas fa-egg fa-stack-1x fa-inverse" style="color: #f1af20; font-size: 1.5em;"></i>
+                        </span>
+                    </div>
+                    
+                    <button type="button" class="navbar-toggler mb-3" data-toggle="collapse"
+                             data-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>    
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <div class="container-fluid">
+                            <div class="input-group search-style">
+                                <input list="searchHistory" value="" class="form-control ml-5" placeholder="Search for your favorite book here!">
+                                <datalist id="searchHistory">
+                                    <option value="History 1">History 1</option>
+                                    <option value="History 2">History 2</option>
+                                    <option value="History 3">History 3</option>
+                                </datalist>                                
+                                <div class="input-group-append">
+                                    <button class="btn btn-secondary mr-5" type="button">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="navbar-nav navbar-light ml-auto">
+                            <a href="index.html" class="nav-item nav-link active mx-auto">HOME</a>
+                            <a href="bookmarks.html" class="nav-item nav-link mx-auto">BOOKMARKS</a>
+                            <a href="owned.html" class="nav-item nav-link mx-auto">OWNED</a>
+                        </div>
+                    </div>
+                </div>    
+            </nav>
+
+            <!-- carousel outside container to avoid content-container id's padding -->
+            <div id="carouselID" class="carousel slide carousel-style" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselID" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselID" data-slide-to="1"></li>
+                    <li data-target="#carouselID" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-interval="3000">
+                        <img src='src/img/carousel1.jpg' class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item" data-interval="3000">
+                        <img src='src/img/carousel2.jpg' class="d-block w-100" alt="2nd Image">
+                    </div>
+                    <div class="carousel-item" data-interval="3000">
+                        <img src='src/img/carousel3.jpg' class="d-block w-100" alt="3rd Image">
+                    </div>
+
+                    <div class="carousel-caption d-none d-block">
+                        <h2> We have many e-books in our site, and it's for free! </h2>
+                        <p>Welcome to EggBook.com! We offer you more than 100 e-books for you to read.</p>
+                    </div>
+                </div>  
+            </div>
+
+            <div id="content-container">    
+                <div class="row row-flex">
+                    <div class="col-lg-3 col-md-3 col-sm-3 d-none d-md-block d-lg-block d-xl-block px-auto">
+                        <div class="icon-bar mt-5 pt-3">
+                            <h2>Genres</h2>
+                            <a href="#">Action</a>
+                            <a href="#">Comedy</a>
+                            <a href="#">Romance</a>
+                            <a href="#">Suspense</a>
+                            <a href="#">Thriller</a>
+                            <a href="#">Action</a>
+                            <a href="#">Comedy</a>
+                            <a href="#">Romance</a>
+                            <a href="#">Suspense</a>
+                            <a href="#">Thriller</a>
+                            <a href="#">Action</a>
+                            <a href="#">Comedy</a>
+                            <a href="#">Romance</a>
+                            <a href="#">Suspense</a>
+                            <a href="#">Thriller</a>
+                            <a href="#">Action</a>
+                            <a href="#">Comedy</a>
+                            <a href="#">Romance</a>
+                            <a href="#">Suspense</a>
+                            <a href="#">Thriller</a>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-12 d-md-none d-lg-none d-xl-none px-auto">
+                        <select class="browser-default custom-select">
+                            <option selected="0">Action</option>
+                            <option value="1">Comedy</option>
+                            <option value="2">Romance</option>
+                            <option value="3">Suspense</option>
+                            <option value="4">Thriller</option>
+                            <option value="11">Comedy</option>
+                            <option value="12">Romance</option>
+                            <option value="13">Suspense</option>
+                            <option value="14">Thriller</option>
+                            <option value="21">Comedy</option>
+                            <option value="22">Romance</option>
+                            <option value="23">Suspense</option>
+                            <option value="24">Thriller</option>
+                            <option value="31">Comedy</option>
+                            <option value="32">Romance</option>
+                            <option value="33">Suspense</option>
+                            <option value="34">Thriller</option>
+                        </select>
+                    </div>
+
+                    <div id="bookmarkedFilesPanel" class="col-lg-9 col-md-9 col-sm-9 col-xs-12 col-12">
+                        <h1 class="mt-5 pt-3">Recommendations</h1>
+                        
+                        <section class="row row-flex">
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 col-12 mt-5">
+                                <div class="row row-flex items-style">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-6">
+                                        <a href="http://www.google.com">
+                                            <img src='src/img/book 1.jpg' alt="The King of Drugs" class="image-style"> 
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-6">
+                                        <h5 class="book-title-style"><a href="#"> The King of Drugs </a></h5>
+                                        <h5 class="author-style"><a href="#"> Nora Barret </a></h5>
+                                        <h5 class="author-style"> Price: 100 PHP </h5>
+                                        <p> From a New York Times bestselling author: One horrific night changed everything for Sarah Hampton and Tyler Grant. <a href="#" class="readmore-style"> read more </a> </p>
+                                        <div class="row text-left">
+                                            <p class="ml-1"><a href="#" target="_blank" class="btn btn-sm btn-success">Bookmark</a></p>
+                                            <p class="ml-1"><a href="#" target="_blank" class="btn btn-sm btn-success">Buy</a></p>
+                                            <p class="ml-1 mr-auto"><a href="#" target="_blank" class="btn btn-sm btn-success">Add to Cart</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 col-12 mt-5">
+                                <div class="row row-flex items-style">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-6">
+                                        <a href="http://www.google.com">
+                                            <img src='src/img/book 1.jpg' alt="The King of Drugs" class="image-style"> 
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-6">
+                                        <h5 class="book-title-style"><a href="#"> The King of Drugs </a></h5>
+                                        <h5 class="author-style"><a href="#"> Nora Barret </a></h5>
+                                        <h5 class="author-style"> Price: 100 PHP </h5>
+                                        <p> From a New York Times bestselling author: One horrific night changed everything for Sarah Hampton and Tyler Grant. <a href="#" class="readmore-style"> read more </a> </p>
+                                        <div class="row text-left">
+                                            <p class="ml-1"><a href="#" target="_blank" class="btn btn-sm btn-success">Bookmark</a></p>
+                                            <p class="ml-1"><a href="#" target="_blank" class="btn btn-sm btn-success">Buy</a></p>
+                                            <p class="ml-1 mr-auto"><a href="#" target="_blank" class="btn btn-sm btn-success">Add to Cart</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 col-12 mt-5">
+                                <div class="row row-flex items-style">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-6">
+                                        <a href="http://www.google.com">
+                                            <img src='src/img/book 1.jpg' alt="The King of Drugs" class="image-style"> 
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-6">
+                                        <h5 class="book-title-style"><a href="#"> The King of Drugs </a></h5>
+                                        <h5 class="author-style"><a href="#"> Nora Barret </a></h5>
+                                        <h5 class="author-style"> Price: 100 PHP </h5>
+                                        <p> From a New York Times bestselling author: One horrific night changed everything for Sarah Hampton and Tyler Grant. <a href="#" class="readmore-style"> read more </a> </p>
+                                        <div class="row text-left">
+                                            <p class="ml-1"><a href="#" target="_blank" class="btn btn-sm btn-success">Bookmark</a></p>
+                                            <p class="ml-1"><a href="#" target="_blank" class="btn btn-sm btn-success">Buy</a></p>
+                                            <p class="ml-1 mr-auto"><a href="#" target="_blank" class="btn btn-sm btn-success">Add to Cart</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 col-12 mt-5">
+                                <div class="row row-flex items-style">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-6">
+                                        <a href="http://www.google.com">
+                                            <img src='src/img/book 1.jpg' alt="The King of Drugs" class="image-style"> 
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-6">
+                                        <h5 class="book-title-style"><a href="#"> The King of Drugs </a></h5>
+                                        <h5 class="author-style"><a href="#"> Nora Barret </a></h5>
+                                        <h5 class="author-style"> Price: 100 PHP </h5>
+                                        <p> From a New York Times bestselling author: One horrific night changed everything for Sarah Hampton and Tyler Grant. <a href="#" class="readmore-style"> read more </a> </p>
+                                        <div class="row text-left">
+                                            <p class="ml-1"><a href="#" target="_blank" class="btn btn-sm btn-success">Bookmark</a></p>
+                                            <p class="ml-1"><a href="#" target="_blank" class="btn btn-sm btn-success">Buy</a></p>
+                                            <p class="ml-1 mr-auto"><a href="#" target="_blank" class="btn btn-sm btn-success">Add to Cart</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </section>
+
+                        <h1 class="mt-5 pt-3">Most-Favorite</h1>
+                        
+                        <section class="row row-flex">
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 col-12 mt-5">
+                                <div class="row row-flex items-style">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-6">
+                                        <a href="http://www.google.com">
+                                            <img src='src/img/book 1.jpg' alt="The King of Drugs" class="image-style"> 
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-6">
+                                        <h5 class="book-title-style"><a href="#"> The King of Drugs </a></h5>
+                                        <h5 class="author-style"><a href="#"> Nora Barret </a></h5>
+                                        <h5 class="author-style"> Price: 100 PHP </h5>
+                                        <p> From a New York Times bestselling author: One horrific night changed everything for Sarah Hampton and Tyler Grant. <a href="#" class="readmore-style"> read more </a> </p>
+                                        <div class="row text-left">
+                                            <p class="ml-1"><a href="#" target="_blank" class="btn btn-sm btn-success">Bookmark</a></p>
+                                            <p class="ml-1"><a href="#" target="_blank" class="btn btn-sm btn-success">Buy</a></p>
+                                            <p class="ml-1 mr-auto"><a href="#" target="_blank" class="btn btn-sm btn-success">Add to Cart</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 col-12 mt-5">
+                                <div class="row row-flex items-style">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-6">
+                                        <a href="http://www.google.com">
+                                            <img src='src/img/book 1.jpg' alt="The King of Drugs" class="image-style"> 
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-6">
+                                        <h5 class="book-title-style"><a href="#"> The King of Drugs </a></h5>
+                                        <h5 class="author-style"><a href="#"> Nora Barret </a></h5>
+                                        <h5 class="author-style"> Price: 100 PHP </h5>
+                                        <p> From a New York Times bestselling author: One horrific night changed everything for Sarah Hampton and Tyler Grant. <a href="#" class="readmore-style"> read more </a> </p>
+                                        <div class="row text-left">
+                                            <p class="ml-1"><a href="#" target="_blank" class="btn btn-sm btn-success">Bookmark</a></p>
+                                            <p class="ml-1"><a href="#" target="_blank" class="btn btn-sm btn-success">Buy</a></p>
+                                            <p class="ml-1 mr-auto"><a href="#" target="_blank" class="btn btn-sm btn-success">Add to Cart</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 col-12 mt-5">
+                                <div class="row row-flex items-style">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-6">
+                                        <a href="http://www.google.com">
+                                            <img src='src/img/book 1.jpg' alt="The King of Drugs" class="image-style"> 
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-6">
+                                        <h5 class="book-title-style"><a href="#"> The King of Drugs </a></h5>
+                                        <h5 class="author-style"><a href="#"> Nora Barret </a></h5>
+                                        <h5 class="author-style"> Price: 100 PHP </h5>
+                                        <p> From a New York Times bestselling author: One horrific night changed everything for Sarah Hampton and Tyler Grant. <a href="#" class="readmore-style"> read more </a> </p>
+                                        <div class="row text-left">
+                                            <p class="ml-1"><a href="#" target="_blank" class="btn btn-sm btn-success">Bookmark</a></p>
+                                            <p class="ml-1"><a href="#" target="_blank" class="btn btn-sm btn-success">Buy</a></p>
+                                            <p class="ml-1 mr-auto"><a href="#" target="_blank" class="btn btn-sm btn-success">Add to Cart</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 col-12 mt-5">
+                                <div class="row row-flex items-style">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-6">
+                                        <a href="http://www.google.com">
+                                            <img src='src/img/book 1.jpg' alt="The King of Drugs" class="image-style"> 
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-6">
+                                        <h5 class="book-title-style"><a href="#"> The King of Drugs </a></h5>
+                                        <h5 class="author-style"><a href="#"> Nora Barret </a></h5>
+                                        <h5 class="author-style"> Price: 100 PHP </h5>
+                                        <p> From a New York Times bestselling author: One horrific night changed everything for Sarah Hampton and Tyler Grant. <a href="#" class="readmore-style"> read more </a> </p>
+                                        <div class="row text-left">
+                                            <p class="ml-1"><a href="#" target="_blank" class="btn btn-sm btn-success">Bookmark</a></p>
+                                            <p class="ml-1"><a href="#" target="_blank" class="btn btn-sm btn-success">Buy</a></p>
+                                            <p class="ml-1 mr-auto"><a href="#" target="_blank" class="btn btn-sm btn-success">Add to Cart</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </section>
+
+                        <h1 class="mt-5 pt-3">Free E-books</h1>
+                        
+                        <section class="row row-flex">
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 col-12 mt-5">
+                                <div class="row row-flex items-style">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-6">
+                                        <a href="http://www.google.com">
+                                            <img src='src/img/book 1.jpg' alt="The King of Drugs" class="image-style"> 
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-6">
+                                        <h5 class="book-title-style"><a href="#"> The King of Drugs </a></h5>
+                                        <h5 class="author-style"><a href="#"> Nora Barret </a></h5>
+                                        <h5 class="author-style"> Price: 100 PHP </h5>
+                                        <p> From a New York Times bestselling author: One horrific night changed everything for Sarah Hampton and Tyler Grant. <a href="#" class="readmore-style"> read more </a> </p>
+                                        <div class="row text-left">
+                                            <p class="ml-1"><a href="#" target="_blank" class="btn btn-sm btn-success">Bookmark</a></p>
+                                            <p class="ml-1"><a href="#" target="_blank" class="btn btn-sm btn-success">Buy</a></p>
+                                            <p class="ml-1 mr-auto"><a href="#" target="_blank" class="btn btn-sm btn-success">Add to Cart</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 col-12 mt-5">
+                                <div class="row row-flex items-style">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-6">
+                                        <a href="http://www.google.com">
+                                            <img src='src/img/book 1.jpg' alt="The King of Drugs" class="image-style"> 
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-6">
+                                        <h5 class="book-title-style"><a href="#"> The King of Drugs </a></h5>
+                                        <h5 class="author-style"><a href="#"> Nora Barret </a></h5>
+                                        <h5 class="author-style"> Price: 100 PHP </h5>
+                                        <p> From a New York Times bestselling author: One horrific night changed everything for Sarah Hampton and Tyler Grant. <a href="#" class="readmore-style"> read more </a> </p>
+                                        <div class="row text-left">
+                                            <p class="ml-1"><a href="#" target="_blank" class="btn btn-sm btn-success">Bookmark</a></p>
+                                            <p class="ml-1"><a href="#" target="_blank" class="btn btn-sm btn-success">Buy</a></p>
+                                            <p class="ml-1 mr-auto"><a href="#" target="_blank" class="btn btn-sm btn-success">Add to Cart</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 col-12 mt-5">
+                                <div class="row row-flex items-style">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-6">
+                                        <a href="http://www.google.com">
+                                            <img src='src/img/book 1.jpg' alt="The King of Drugs" class="image-style"> 
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-6">
+                                        <h5 class="book-title-style"><a href="#"> The King of Drugs </a></h5>
+                                        <h5 class="author-style"><a href="#"> Nora Barret </a></h5>
+                                        <h5 class="author-style"> Price: 100 PHP </h5>
+                                        <p> From a New York Times bestselling author: One horrific night changed everything for Sarah Hampton and Tyler Grant. <a href="#" class="readmore-style"> read more </a> </p>
+                                        <div class="row text-left">
+                                            <p class="ml-1"><a href="#" target="_blank" class="btn btn-sm btn-success">Bookmark</a></p>
+                                            <p class="ml-1"><a href="#" target="_blank" class="btn btn-sm btn-success">Buy</a></p>
+                                            <p class="ml-1 mr-auto"><a href="#" target="_blank" class="btn btn-sm btn-success">Add to Cart</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 col-12 mt-5">
+                                <div class="row row-flex items-style">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-6">
+                                        <a href="http://www.google.com">
+                                            <img src='src/img/book 1.jpg' alt="The King of Drugs" class="image-style"> 
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-6">
+                                        <h5 class="book-title-style"><a href="#"> The King of Drugs </a></h5>
+                                        <h5 class="author-style"><a href="#"> Nora Barret </a></h5>
+                                        <h5 class="author-style"> Price: 100 PHP </h5>
+                                        <p> From a New York Times bestselling author: One horrific night changed everything for Sarah Hampton and Tyler Grant. <a href="#" class="readmore-style"> read more </a> </p>
+                                        <div class="row text-left">
+                                            <p class="ml-1"><a href="#" target="_blank" class="btn btn-sm btn-success">Bookmark</a></p>
+                                            <p class="ml-1"><a href="#" target="_blank" class="btn btn-sm btn-success">Buy</a></p>
+                                            <p class="ml-1 mr-auto"><a href="#" target="_blank" class="btn btn-sm btn-success">Add to Cart</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="container-fluid">
+                <div class="row row-flex">
+                    <div class="col-md-6">
+                        <p class="text-dark">Copyright © 2020 - EggScrumble</p>
+                    </div>
+                    <div class="col-md-6 text-md-right">
+                        <a href="#" class="text-dark">Terms of Use</a> 
+                        <span class="text-dark mx-2">|</span> 
+                        <a href="https://github.com/KuyaChoseph/Egg-Scrumble-Website" class="text-dark">Github Link</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div> 
+
+    
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <!-- jQuery Custom Scroller CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <!-- Sidebar Script -->
+    <script src="sidebar.js"></script>
+</body>
+</html>
