@@ -99,6 +99,20 @@ const owned_get = async (req,res) => {
 const forgotpass_get = async (req,res) => {
     res.render('forgotpass', {title: 'Forgot Password'});
 }
+const forgotpass_post = async(req, res) => {
+    const { email } = req.body;
+
+    User.exists({ email: email }, function(err, doc) {
+        if (doc) {
+            res.redirect('/forgotpasscode')
+        } else {
+            res.redirect(400, '/forgotpass')
+                
+        }
+
+    });
+
+}
 
 const forgotpasscode_get = async (req,res) => {
     res.render('forgotpasscode', {title: 'Forgot Password'});
@@ -117,6 +131,7 @@ module.exports = {
     bookmarks_get,
     owned_get,
     forgotpass_get,
+    forgotpass_post,
     forgotpasscode_get,
     enterpassword_get
 }
