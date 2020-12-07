@@ -18,12 +18,13 @@ Required packages:
 5) jsonwebtoken
 6) mongoose
 7) validator
-8) nodemon (for global *optional)
+8) nodemailer 
+9) nodemon (for global *optional)
 
 To install packages, run following commands on same directory with project file:
 1) npm init
-2) npm install (will install all packages listed on package.json which is packages #1-7)
-3) npm install nodemon -g (req. package #8)
+2) npm install (will install all packages listed on package.json which is packages #1-8)
+3) npm install nodemon -g (req. package #9)
 
 To run in localhost:
 1) nodemon app
