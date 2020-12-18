@@ -1,19 +1,21 @@
 #colors {
-  /* Primary 1 */
-  color: #06397d;
 
-  /* Secondary 1 */
-  color: #f1af20;
+    /* Primary 1 */
+    color: #06397d;
 
-  /* Background 1*/
-  color: #398eb2;
+    /* Secondary 1 */
+    color: #f1af20;
 
-  /* background 2 and secondary 2*/
-  color: #e4e9f4;
+    /* Background 1*/
+    color: #398eb2;
 
-  /*secondary 3*/
-  color: #757575;
+    /* background 2 and secondary 2*/
+    color: #e4e9f4;
 
-  /* danger */
-  color: #911f1e;
+    /*secondary 3*/
+    color: #757575;
+
+    /* danger */
+    color: #911f1e;
+
 }

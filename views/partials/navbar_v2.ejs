@@ -7,9 +7,8 @@
         <div class="row row-flex">
             <h1 class="title mr-2 ml-3">EggBook</h1>
             <span class="fa-stack" style="vertical-align: top;">
-                <i class="fas fa-egg fa-stack-1x" style="color: #e4e9f4; font-size: 2.2em; padding-top: 1vh;"></i>
-                <i class="fas fa-egg fa-stack-1x fa-inverse"
-                    style="color: #f1af20; font-size: 1.5em; padding-top: 1vh;"></i>
+                <i class="fas fa-egg fa-stack-1x" style="color: #e4e9f4; font-size: 2.2em;"></i>
+                <i class="fas fa-egg fa-stack-1x fa-inverse" style="color: #f1af20; font-size: 1.5em;"></i>
             </span>
         </div>
 
@@ -18,8 +17,14 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="container-fluid">
-                <div class="input-group">
-                    <input type="text" class="form-control ml-5" placeholder="Search your favorite book!">
+                <div class="input-group search-style">
+                    <input list="searchHistory" value="" class="form-control ml-5"
+                        placeholder="Search for your favorite book here!">
+                    <datalist id="searchHistory">
+                        <option value="History 1">History 1</option>
+                        <option value="History 2">History 2</option>
+                        <option value="History 3">History 3</option>
+                    </datalist>
                     <div class="input-group-append">
                         <button class="btn btn-secondary mr-5" type="button">
                             <i class="fa fa-search"></i>

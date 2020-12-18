@@ -99,20 +99,6 @@ const owned_get = async (req,res) => {
 const forgotpass_get = async (req,res) => {
     res.render('forgotpass', {title: 'Forgot Password'});
 }
-const forgotpass_post = async(req, res) => {
-    const { email } = req.body;
-
-    User.exists({ email: email }, function(err, doc) {
-        if (doc) {
-            res.redirect('/forgotpasscode')
-        } else {
-            res.redirect(400, '/forgotpass')
-                
-        }
-
-    });
-
-}
 
 const forgotpasscode_get = async (req,res) => {
     res.render('forgotpasscode', {title: 'Forgot Password'});
@@ -121,6 +107,11 @@ const forgotpasscode_get = async (req,res) => {
 const enterpassword_get = async (req,res) => {
     res.render('enterpassword', {title: 'Enter Password'});
 }
+
+const cart_get = async (req,res) => {
+    res.render('cart', {title: 'Cart'});
+}
+
 module.exports = {
     signup_get, 
     signup_post,
@@ -131,7 +122,7 @@ module.exports = {
     bookmarks_get,
     owned_get,
     forgotpass_get,
-    forgotpass_post,
     forgotpasscode_get,
-    enterpassword_get
+    enterpassword_get,
+    cart_get
 }
