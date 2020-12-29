@@ -1,7 +1,8 @@
 /* For login form */
-async function LoginValidation()
-{
-       // get the values
+
+
+async function LoginValidation() {
+    // get the values
     let email = document.getElementById("exampleInputLoginID").value;
     let password = document.getElementById("exampleInputPassword").value;
 
@@ -31,6 +32,8 @@ async function LoginValidation()
     } catch (err) {
         console.log(err);
     }
+
+
 }
 
 /* For sign-up form */
@@ -127,4 +130,128 @@ async function SignUpSubmit() {
             console.log(err);
         }
     }
+}
+
+async function PasswordReset() {
+
+    let email = document.getElementById("exampleInputLoginID").value;
+    let emailValid = false;
+    var Remail = email;
+
+    document.getElementById("error").innerHTML = null;
+    //Display email format specific errors
+    if (email == "") {
+        document.getElementById("error").innerHTML = `<span style='color: red;'>Enter A Valid Email</span>`;
+        emailValid = false;
+    } else if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email))
+        emailValid = true;
+    else
+        document.getElementById("error").innerHTML = `<span style='color: red;'>Enter A Valid Email</span>`;
+
+    if (emailValid)
+    //pass the email to check if it exist in the db
+        try {
+        const res = await fetch('/forgotpass', {
+            method: 'POST',
+            body: JSON.stringify({ email }),
+            headers: { 'Content-Type': 'application/json' }
+        });
+        console.log(res);
+        if (res.status == 400)
+        //email not in db
+            document.getElementById("error").innerHTML = `<span style='color: red;'>No such email exist</span>`;
+        else {
+            //email is in db and has been sent a code
+            alert("Code sent to " + Remail);
+            location.href = '/forgotpasscode' + '?' + 'email=' + Remail;
+
+        }
+    } catch (err) {
+        console.log(err);
+    }
+
+}
+
+
+
+function ProcessDisplaysFPC() {
+    let parameters = location.search.substring(1).split("&");
+    let temp = parameters[0].split("=");
+    let receivedemail = unescape(temp[1]);
+    // alert(receivedemail);
+    document.getElementById("display").innerHTML = `${receivedemail}`;
+}
+
+async function ConfirmCode() {
+
+
+    let parameters = location.search.substring(1).split("&");
+    let temp = parameters[0].split("=");
+    const receivedemail = unescape(temp[1]);
+    //alert(receivedemail);
+    const inputCode = document.getElementById("verificationCodeID").value;
+
+
+    // sends email and input code to the controller for verification 
+    try {
+        const res = await fetch('/forgotpasscode', {
+            method: 'POST',
+            body: JSON.stringify({ email: receivedemail, code: inputCode }),
+            headers: { 'Content-Type': 'application/json' }
+        });
+       
+        if (res.status == 400)
+            alert("Wrong Code");
+        else {
+            alert("Code Match");
+         
+            location.href = '/enterpassword?email='+receivedemail+'&code='+inputCode;
+            
+
+
+        }
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+
+async function ConfirmResetPassword() {
+    let url_string = window.location.href;
+    let url = new URL(url_string);
+    const receivedemail = url.searchParams.get("email");
+    const inputCode = url.searchParams.get("code");
+    
+    const newpass =  document.getElementById('verificationCodeID').value;
+    let ReNewPass = document.getElementById('verificationCodeID2').value;
+
+    if (newpass != ReNewPass){
+                    document.getElementById("RePasswordRequired").innerHTML = "<span style='color: red;'>Password did not match</span>";
+    }
+    else if(newpass == " " || ReNewPass == "" ){
+        document.getElementById("RePasswordRequired").innerHTML = "<span style='color: red;'>Please complete the fields</span>";
+    }
+        else{
+    try {
+        console.log("FORWARING");
+        const res = await fetch('/enterpassword', {
+            method: 'POST',
+            body: JSON.stringify({ email: receivedemail, code: inputCode , newpass: newpass}),
+            headers: { 'Content-Type': 'application/json' }
+        });
+       
+        if (res.status == 200)
+            alert("Password Changed");
+        else {
+            alert("Password not changed due to error");
+         
+            
+            
+
+
+        }
+    } catch (err) {
+        console.log(err);
+    }
+     }
 }
