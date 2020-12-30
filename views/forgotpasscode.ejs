@@ -5,30 +5,34 @@
             <section id="content-container-login">
                 <div class="row">
                     <h3 class="title mx-auto pb-4"> ENTER VERIFICATION CODE </h3>
+
                 </div>
 
                 <div class="row">
                     <p class="text-center">
-                        Please enter the verification code sent to your email. After the timer ends, you will be directed back to the Forgot Password page.
+                        Please Enter verification code for
+
                     </p>
                 </div>
 
-                <div class="row"> <!-- make 60 a countdown timer; will be redirected to last page if timer ends or verificaiton code is wrong -->
-                    <h3 style="margin-left: 3vw; font-weight: 600;" class="mx-auto"> 60 </h3>
-                </div>
 
-                <form>  
-                    <div class="form-group pl-2 pr-2">  
-                        <label for="exampleInputEmail1">Verification Code</label>  
-                        <input type="text" class="form-control" id="verificationCodeID" placeholder="Example: 6427">  
-                    </div>  
+                <form>
+                    <div id="display"> </div>
+                    <script src="main.js">
+                        
+                    </script>
+                    <div class="form-group pl-2 pr-2">
+                        <label for="exampleInputEmail1">Verification Code</label>
+                        <input type="text" class="form-control" id="verificationCodeID" placeholder="Example: 6427">
+                    </div>
 
-                    <div class="row"> <!-- reloads page and resends code -->
-                        <p class="mx-auto"><a href="#" style="font-weight: 500;">Resend Code</a></p>
+                    <div class="row">
+                        <!-- redirects the user to enter email -->
+                        <p class="mx-auto"><a href="/forgotpass" style="font-weight: 500;">Resend Code</a></p>
                     </div>
 
                     <div class="form-group p-2">
-                        <button onclick="location.href='enterpassword.html'" type="button" class="btn-xl btn-secondary">Enter Verification Code</button>
+                        <button onclick=ConfirmCode() type="button" class="btn-xl btn-secondary">Enter Verification Code</button>
                     </div>
 
                     <div class="form-group">
@@ -44,4 +48,4 @@
             </section>
         </div>
 
-<%- include('partials/footer'); -%>
+        <%- include('partials/footer'); -%>
