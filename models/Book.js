@@ -11,7 +11,7 @@ const bookSchema = new mongoose.Schema({
         required: true
     },
     cover: {
-        type: Buffer,
+        type: String,
         required: true
     },
     author: {
@@ -31,7 +31,7 @@ const bookSchema = new mongoose.Schema({
         required: true
     },
     language: {
-        type: [String],
+        type: String,
         required: true
     },
     release_date: {
@@ -53,7 +53,11 @@ const bookSchema = new mongoose.Schema({
     modified_date: {
         type: Date,
         required: true
-    }
+    },
+    favorite_count:
+    {
+        type: Number,
+    },
 });
 
 const Book = mongoose.model('book', bookSchema);

@@ -1,6 +1,21 @@
 /* For login form */
 
 
+
+
+
+//hover event to showed carted items
+let cart = document.getElementById(cart);
+
+cart.addEventListener("mouseenter", function(event){
+   
+    setTimeout(function() {
+      event.target.style.color = "";
+    }, 500);
+  }, false);
+//WIP not yet prio
+
+
 async function LoginValidation() {
     // get the values
     let email = document.getElementById("exampleInputLoginID").value;
@@ -330,5 +345,29 @@ async function LoadContent()
 //handles the redirection for recommendated books
 async function RecommendedRedirect(num)
 {
+    
+}
 
+async function LoadChosenGenre(genre)
+{
+    console.log((genre))
+    try {
+      
+        const res = await fetch('/viewbooks', {
+            method: 'POST',
+            body: JSON.stringify({ genre }),
+            headers: { 'Content-Type': 'application/json' }
+        });
+       
+        if (res.status == 200)
+           {
+                location.assign(res.url);
+            }
+        else {
+           
+
+        }
+    } catch (err) {
+        console.log(err);
+    }
 }

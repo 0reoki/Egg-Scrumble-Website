@@ -38,11 +38,11 @@
                     <div class="col-lg-3 col-md-3 col-sm-3 d-none d-md-block d-lg-block d-xl-block px-auto">
                         <div class="icon-bar mt-5 pt-3">
                             <h2>Genres</h2>
-                            <a href="?g=action">Action</a>
-                            <a href="?g=comedy">Comedy</a>
-                            <a href="?g=romance">Romance</a>
-                            <a href="?g=suspense">Suspense</a>
-                            <a href="?g=thriller">Thriller</a>
+                            <a onclick="LoadChosenGenre('Action')">Action</a>
+                            <a href=# onclick="LoadChosenGenre('Comedy')">Comedy</a>
+                            <a href=# onclick="LoadChosenGenre('Romance')">Romance</a>
+                            <a href=# onclick="LoadChosenGenre('Suspense')">Suspense</a>
+                            <a href=# onclick="LoadChosenGenre('Thriller')">Thriller</a>
                             
                         </div>
                     </div>
@@ -59,7 +59,7 @@
                     </div>
 
                     <div id="bookmarkedFilesPanel" class="col-lg-9 col-md-9 col-sm-9 col-xs-12 col-12">
-                        <h1 class="mt-5 pt-3">Recommendations</h1>
+                        <h1 class="mt-5 pt-3" id=GenreChoice>Recommendations</h1>
                         
                         <section class="row row-flex items-style pt-3">
                             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 col-12">                        

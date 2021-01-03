@@ -31,10 +31,6 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: [true, 'User type not included']
     },
-    position: {
-        type: String,
-        required: [true,'Position']
-    },
     search_history: {
         type: Array,
         reqrequired: [false, 'Searches']
