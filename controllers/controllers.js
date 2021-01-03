@@ -106,8 +106,8 @@ const forgotpass_get = async(req, res) => {
 const forgotpass_post = async(req, res) => {
     const { email } = req.body;
     //check if the email entered exists
-    const hash = encrypt(email);
-    console.log(hash);
+    //const hash = encrypt(email);
+    //console.log(hash);
     User.exists({ email: email }, function(err, doc) {
 
         if (doc) {
