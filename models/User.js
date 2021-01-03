@@ -26,6 +26,10 @@ const userSchema = new mongoose.Schema({
     code: {
         type: String,
         required: [false, 'Password Reset']
+    },
+    user_type:{
+        type: String,
+        required: [true, 'User type not included']
     }
 });
 

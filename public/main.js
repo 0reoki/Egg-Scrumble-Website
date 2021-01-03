@@ -5,15 +5,13 @@ async function LoginValidation() {
     // get the values
     let email = document.getElementById("exampleInputLoginID").value;
     let password = document.getElementById("exampleInputPassword").value;
-
-
     // clear error message
     document.getElementById("error").innerHTML = null;
 
     try {
         const res = await fetch('/login', {
             method: 'POST',
-            body: JSON.stringify({ email, password }),
+            body: JSON.stringify({ email, password}),
             headers: { 'Content-Type': 'application/json' }
         });
         const data = await res.json();
@@ -27,7 +25,13 @@ async function LoginValidation() {
                 document.getElementById("error").innerHTML = `<span style='color: red;'>incorrect email or password</span>`;
         }
         if (data.user) {
-            location.assign('/');
+            console.log(data.user.user_type);
+            if(data.user_type === "Administrator"){
+                location.assign('/admin');
+            }
+            else if(data.user_type === "Standard User"){
+                location.assign('/');
+            }      
         }
     } catch (err) {
         console.log(err);

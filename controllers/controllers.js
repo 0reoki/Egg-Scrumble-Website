@@ -56,9 +56,10 @@ const login_get = (req, res) => {
 
 const signup_post = async(req, res) => {
     const { email, password, first_name, last_name } = req.body;
+    const user_type = "Standard User";
 
     try {
-        const user = await User.create({ email, password, first_name, last_name });
+        const user = await User.create({ email, password, first_name, last_name, user_type});
         const token = createToken(user._id);
         res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });
         res.status(201).json({ user: user._id });
@@ -70,12 +71,11 @@ const signup_post = async(req, res) => {
 
 const login_post = async(req, res) => {
     const { email, password } = req.body;
-    
     try {
         const user = await User.login(email, password);
         const token = createToken(user._id);
         res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });
-        res.status(200).json({ user: user._id });
+        res.status(200).json({ user: user._id, user_type: user.user_type});
     } catch (err) {
         const errors = handleErrors(err);
         res.status(400).send({ errors });
@@ -89,6 +89,10 @@ const logout_get = async(req, res) => {
 
 const index_get = async(req, res) => {
     res.render('index', { title: 'Home' });
+}
+
+const admin_get = async(req,res) => {
+    res.render('adminindex', {title: 'Admin Home'});
 }
 
 const bookmarks_get = async(req, res) => {
@@ -247,6 +251,7 @@ module.exports = {
     login_post,
     logout_get,
     index_get,
+    admin_get, 
     bookmarks_get,
     owned_get,
     forgotpass_get,

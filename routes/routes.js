@@ -8,6 +8,7 @@ router.get('/login', controller.login_get);
 router.post('/login', controller.login_post);
 router.get('/logout', controller.logout_get);
 router.get('/', controller.index_get);
+router.get('/admin', controller.admin_get);
 router.get('/bookmarks', controller.bookmarks_get);
 router.get('/owned', controller.owned_get);
 router.get('/forgotpass', controller.forgotpass_get);
