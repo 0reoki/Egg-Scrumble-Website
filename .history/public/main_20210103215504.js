@@ -233,12 +233,12 @@ async function ResendCode()
         });
         console.log(res);
         if (res.status == 400)
-        
+        //email not in db
             alert("error found : email is not exist");
         else {
-            
+            //email is in db and has been sent a code
             alert("code resent");
-           
+            //location.replace ('/forgotpasscode' + '?' + 'email=' + Remail);
 
         }
     } catch (err) {
