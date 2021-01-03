@@ -26,7 +26,7 @@ User.findByIdAndUpdate(user_id, { $push:{ search_history: { $each: [search], $po
 
 const viewbooks_post = (req, res) => {
     const { genre } = req.body;
-console.log("Test");
+
     Book.find({ genre: genre}, function (err, docs) {
         
         if (err)
