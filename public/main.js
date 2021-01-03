@@ -284,7 +284,9 @@ async function SaveSearch_RedirectSearch()
     }
     
    }
-    
+   let url_string = window.location.href;
+    let url = new URL(url_string);
+    const receivedemail = url.searchParams.get("email");
 }
 //preloads the book for the user
 async function LoadContent()
