@@ -7,7 +7,7 @@
         <!-- Page Content -->
         <div id="container">
             <%- include('partials/navbar_v2'); -%>
-
+            
             <!-- carousel outside container to avoid content-container id's padding -->
             <div id="carouselID" class="carousel slide carousel-style" data-ride="carousel">
                 <ol class="carousel-indicators">
@@ -38,26 +38,12 @@
                     <div class="col-lg-3 col-md-3 col-sm-3 d-none d-md-block d-lg-block d-xl-block px-auto">
                         <div class="icon-bar mt-5 pt-3">
                             <h2>Genres</h2>
-                            <a href="#">Action</a>
-                            <a href="#">Comedy</a>
-                            <a href="#">Romance</a>
-                            <a href="#">Suspense</a>
-                            <a href="#">Thriller</a>
-                            <a href="#">Action</a>
-                            <a href="#">Comedy</a>
-                            <a href="#">Romance</a>
-                            <a href="#">Suspense</a>
-                            <a href="#">Thriller</a>
-                            <a href="#">Action</a>
-                            <a href="#">Comedy</a>
-                            <a href="#">Romance</a>
-                            <a href="#">Suspense</a>
-                            <a href="#">Thriller</a>
-                            <a href="#">Action</a>
-                            <a href="#">Comedy</a>
-                            <a href="#">Romance</a>
-                            <a href="#">Suspense</a>
-                            <a href="#">Thriller</a>
+                            <a href="?g=action">Action</a>
+                            <a href="?g=comedy">Comedy</a>
+                            <a href="?g=romance">Romance</a>
+                            <a href="?g=suspense">Suspense</a>
+                            <a href="?g=thriller">Thriller</a>
+                            
                         </div>
                     </div>
 
@@ -68,18 +54,7 @@
                             <option value="2">Romance</option>
                             <option value="3">Suspense</option>
                             <option value="4">Thriller</option>
-                            <option value="11">Comedy</option>
-                            <option value="12">Romance</option>
-                            <option value="13">Suspense</option>
-                            <option value="14">Thriller</option>
-                            <option value="21">Comedy</option>
-                            <option value="22">Romance</option>
-                            <option value="23">Suspense</option>
-                            <option value="24">Thriller</option>
-                            <option value="31">Comedy</option>
-                            <option value="32">Romance</option>
-                            <option value="33">Suspense</option>
-                            <option value="34">Thriller</option>
+                            
                         </select>
                     </div>
 
@@ -89,7 +64,7 @@
                         <section class="row row-flex items-style pt-3">
                             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 col-12">                        
                                 <div class="property-card">
-                                    <a href="http://www.google.com">
+                                    <a onclick=RecommendedRedirect(1)>
                                         <div style="background-image:url('img/book\ 1.jpg');" class="property-image"></div>
                                     </a>
                                     <div class="property-description">

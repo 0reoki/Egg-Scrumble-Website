@@ -27,10 +27,21 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: [false, 'Password Reset']
     },
+<<<<<<< HEAD
     user_type:{
         type: String,
         required: [true, 'User type not included']
     }
+=======
+    position: {
+        type: String,
+        required: [true,'Position']
+    },
+    search_history: {
+        type: Array,
+        reqrequired: [false, 'Searches']
+    },
+>>>>>>> e4b4f8c2952d6e44575c2af0e9403aa4a60fa0f4
 });
 
 // fire a function before doc saved to db

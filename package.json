@@ -1,7 +1,7 @@
 {
   "name": "egg-scrumble-website",
   "version": "1.0.0",
-  "description": "",
+  "description": "A college project for our subject IT Professional Elective 1",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

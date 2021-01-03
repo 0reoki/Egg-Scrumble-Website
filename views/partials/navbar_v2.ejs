@@ -18,15 +18,19 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="container-fluid">
                 <div class="input-group search-style">
-                    <input list="searchHistory" value="" class="form-control ml-5"
+                    <input list="searchHistory" id=searchBox value="" class="form-control ml-5"
                         placeholder="Search for your favorite book here!">
                     <datalist id="searchHistory">
-                        <option value="History 1">History 1</option>
-                        <option value="History 2">History 2</option>
-                        <option value="History 3">History 3</option>
+                        <% if (user) { %>
+                            <option id="History1"><%= user.search_history[0]%> </option>
+                            <option id="History2"><%= user.search_history[1]%></option>
+                            <option id="History3"><%= user.search_history[2]%></option>
+                        <% } else { %> 
+                            <h3>Log-in to save searches</h3>
+                        <% } %> 
                     </datalist>
                     <div class="input-group-append">
-                        <button class="btn btn-secondary mr-5" type="button">
+                        <button onclick=SaveSearch_RedirectSearch() class="btn btn-secondary mr-5" type="button">
                             <i class="fa fa-search"></i>
                         </button>
                     </div>

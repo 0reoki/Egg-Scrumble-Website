@@ -237,7 +237,7 @@ async function ConfirmResetPassword() {
     }
         else{
     try {
-        console.log("FORWARING");
+      
         const res = await fetch('/enterpassword', {
             method: 'POST',
             body: JSON.stringify({ email: receivedemail, code: inputCode , newpass: newpass}),
@@ -258,4 +258,47 @@ async function ConfirmResetPassword() {
         console.log(err);
     }
      }
+}
+
+
+async function SaveSearch_RedirectSearch()
+{
+   const search = document.getElementById("searchBox").value; 
+   if (search!="")
+   {
+    try {
+      
+        const res = await fetch('/search', {
+            method: 'POST',
+            body: JSON.stringify({ search }),
+            headers: { 'Content-Type': 'application/json' }
+        });
+       
+        if (res.status == 200)
+           {console.log("Searched");
+           console.log("Good Job " + search);
+           location.href =  "/?s=" + search;
+        }
+        else {
+            
+
+        }
+    } catch (err) {
+        console.log(err);
+    }
+    
+   }
+   let url_string = window.location.href;
+    let url = new URL(url_string);
+    const receivedemail = url.searchParams.get("email");
+}
+//preloads the book for the user
+async function LoadContent()
+{
+
+}
+//handles the redirection for recommendated books
+async function RecommendedRedirect(num)
+{
+
 }

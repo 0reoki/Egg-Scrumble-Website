@@ -1,5 +1,6 @@
 const { Router } = require('express');
 const controller = require('../controllers/controllers');
+const search_controller = require('../controllers/searchcontroller');
 const router = Router();
 
 router.get('/signup', controller.signup_get);
@@ -18,5 +19,6 @@ router.post('/forgotpasscode', controller.forgotpasscode_post);
 router.get('/enterpassword', controller.enterpassword_get);
 router.post('/enterpassword', controller.enterpassword_post);
 router.get('/cart', controller.cart_get);
+router.post('/search',search_controller.search_post);
 
 module.exports = router;
