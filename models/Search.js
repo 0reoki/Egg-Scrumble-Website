@@ -9,10 +9,6 @@ const searchSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    email: {
-        type:  String,
-        required: true
-    },
     search_text: {
         type: Array,
         required: true

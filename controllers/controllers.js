@@ -206,7 +206,7 @@ const enterpassword_get = async(req, res) => {
 
 const enterpassword_post = async(req, res) => {
     const { email, code , newpass} = req.body;
-    console.log("TADA"+ email+ code + newpass);
+    
    
    //gets code in the db     
 User.findOne({ email: email }, (err, doc) => {

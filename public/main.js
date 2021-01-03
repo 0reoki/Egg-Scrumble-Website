@@ -167,7 +167,7 @@ async function PasswordReset() {
         else {
             //email is in db and has been sent a code
             alert("Code sent to " + Remail);
-            location.href = '/forgotpasscode' + '?' + 'email=' + Remail;
+            location.replace ('/forgotpasscode' + '?' + 'email=' + Remail);
 
         }
     } catch (err) {
@@ -209,7 +209,7 @@ async function ConfirmCode() {
         else {
             alert("Code Match");
          
-            location.href = '/enterpassword?email='+receivedemail+'&code='+inputCode;
+            location.replace ('/enterpassword?email='+receivedemail+'&code='+inputCode) ;
             
 
 
@@ -219,6 +219,33 @@ async function ConfirmCode() {
     }
 }
 
+async function ResendCode()
+{
+    let url_string = window.location.href;
+    let url = new URL(url_string);
+    const email = url.searchParams.get("email");
+
+    try {
+        const res = await fetch('/forgotpass', {
+            method: 'POST',
+            body: JSON.stringify({ email }),
+            headers: { 'Content-Type': 'application/json' }
+        });
+        console.log(res);
+        if (res.status == 400)
+        //email not in db
+            alert("error found : email is not exist");
+        else {
+            //email is in db and has been sent a code
+            alert("code resent");
+            //location.replace ('/forgotpasscode' + '?' + 'email=' + Remail);
+
+        }
+    } catch (err) {
+        console.log(err);
+    }
+
+}
 
 async function ConfirmResetPassword() {
     let url_string = window.location.href;
@@ -245,7 +272,10 @@ async function ConfirmResetPassword() {
         });
        
         if (res.status == 200)
+            {
             alert("Password Changed");
+            location.replace ('/login') ;
+            }
         else {
             alert("Password not changed due to error");
          
