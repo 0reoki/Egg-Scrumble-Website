@@ -26,7 +26,15 @@ const userSchema = new mongoose.Schema({
     code: {
         type: String,
         required: [false, 'Password Reset']
-    }
+    },
+    position: {
+        type: String,
+        required: [true,'Position']
+    },
+    search_history: {
+        type: Array,
+        reqrequired: [false, 'Searches']
+    },
 });
 
 // fire a function before doc saved to db

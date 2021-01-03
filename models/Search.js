@@ -8,7 +8,15 @@ const searchSchema = new mongoose.Schema({
     search_text: {
         type: String,
         required: true
-    }
+    },
+    email: {
+        type:  String,
+        required: true
+    },
+    search_text: {
+        type: Array,
+        required: true
+    },
 }, {timestamps: true});
 
 const Search = mongoose.model('search', searchSchema);
