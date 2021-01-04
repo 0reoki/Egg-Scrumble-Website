@@ -21,7 +21,7 @@ const requireAuth = (req,res,next) => {
     }
 }
 
-// check current user
+// check current user and current search category
 const checkUser = (req, res, next) => {
     const token = req.cookies.jwt;
     if (token) {
@@ -49,21 +49,8 @@ const checkUser = (req, res, next) => {
                res.locals.genre = genresource;
                 console.log(genresource);
                 
-              //  const genre = req.url.searchParams.get("a");
-               // console.log(genre);
-             /*  Book.find({ genre: genresource}, function (err, books) {
-                books.map(function(books){
-                    
-                    JSON.stringify(books);
-                    console.log(books);
-                    res.locals.books = books;
-                    console.log(genresource);
-                });
-                next();
-                });
-        */
             if (err)
-                console.log(genresource);
+                console.log(err);
 
              //   let search = await Search.findById(decodedToken.id);
               //  res.locals.search = search;

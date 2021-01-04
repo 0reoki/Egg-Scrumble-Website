@@ -23,7 +23,7 @@ User.findByIdAndUpdate(user_id, { $push:{ search_history: { $each: [search], $po
     });
    res.redirect('/');
 }
-
+//not in use
 const viewbooks_post = (req, res,next) => {
     const { genre } = req.body;
 
