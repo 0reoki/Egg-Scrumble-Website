@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const routes = require('./routes/routes');
 const cookieParser = require('cookie-parser');
-const { requireAuth, checkUser } = require('./middleware/middleware');
+const { requireAuth, checkUser,viewBook} = require('./middleware/middleware');
 const app = express();
 
 // middleware
@@ -21,6 +21,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCr
 
 // routes
 app.get('*', checkUser);
+//app.get('/?=*', viewBook);
 app.get('/', (req, res) => res.render('index',{title: 'Home'}));
 app.get('/bookmarks', requireAuth, (req, res) => res.render('bookmarks', {title: 'Bookmarks'}));
 app.get('/owned', requireAuth, (req, res) => res.render('owned', {title: 'Owned'}));

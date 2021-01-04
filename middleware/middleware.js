@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
-//const Search = require('../models/Search');
+const Book = require('../models/Book');
 
 const requireAuth = (req,res,next) => {
     const token = req.cookies.jwt;
@@ -35,6 +35,36 @@ const checkUser = (req, res, next) => {
                 console.log(decodedToken);
                 let user = await User.findById(decodedToken.id);
                 res.locals.user = user;
+                res.locals.book = null;
+                const genresource = req.query.a;
+             
+              //  const genre = req.url.searchParams.get("a");
+               // console.log(genre);
+               let book = await Book.find({genre: genresource});
+               //console.log(JSON.parse(JSON.stringify(book)))
+              
+               res.locals.book = {book};
+              console.log(book);
+               
+               res.locals.genre = genresource;
+                console.log(genresource);
+                
+              //  const genre = req.url.searchParams.get("a");
+               // console.log(genre);
+             /*  Book.find({ genre: genresource}, function (err, books) {
+                books.map(function(books){
+                    
+                    JSON.stringify(books);
+                    console.log(books);
+                    res.locals.books = books;
+                    console.log(genresource);
+                });
+                next();
+                });
+        */
+            if (err)
+                console.log(genresource);
+
              //   let search = await Search.findById(decodedToken.id);
               //  res.locals.search = search;
                 next();
@@ -45,5 +75,25 @@ const checkUser = (req, res, next) => {
         next();
     }
 };
+const viewBook = (req, res, next) => {
+    
+    
+      
+                let book = Book.find({genre: "Action"});
+            
+                book.map(function(docs){
+                    console.log("Viewed"  + book);
+                    JSON.stringify(book);
+                    console.log(book);
+        
+                });
+                res.locals.book = book;
+             //   let search = await Search.findById(decodedToken.id);
+              //  res.locals.search = search;
+        location.reload
+        next();
+    
+};
 
-module.exports = { requireAuth, checkUser};
+
+module.exports = { requireAuth, checkUser, viewBook};

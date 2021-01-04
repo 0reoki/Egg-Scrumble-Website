@@ -21,7 +21,7 @@
                     <input list="searchHistory" id=searchBox value="" class="form-control ml-5"
                         placeholder="Search for your favorite book here!">
                     <datalist id="searchHistory">
-                        <% if (user) { %>
+                        <% if (locals.user) { %>
                             <option id="History1"><%= user.search_history[0]%> </option>
                             <option id="History2"><%= user.search_history[1]%></option>
                             <option id="History3"><%= user.search_history[2]%></option>

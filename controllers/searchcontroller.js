@@ -24,21 +24,25 @@ User.findByIdAndUpdate(user_id, { $push:{ search_history: { $each: [search], $po
    res.redirect('/');
 }
 
-const viewbooks_post = (req, res) => {
+const viewbooks_post = (req, res,next) => {
     const { genre } = req.body;
 
     Book.find({ genre: genre}, function (err, docs) {
         
         if (err)
-        console.log(err)
+        console.log(err);
         else
         {
-        console.log(docs)
         res.redirect('/?a='+genre);
+        let books = docs;
+        res.locals.books = books;
+       // console.log(docs)
         }});
  
        
     }
+
+
 
 
 module.exports = {
