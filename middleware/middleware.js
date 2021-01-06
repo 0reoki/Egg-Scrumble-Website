@@ -22,14 +22,14 @@ const requireAuth = (req,res,next) => {
 }
 
 // check current user and current search category
-const checkUser = (req, res, next) => {
+const checkUser = async (req, res, next) => {
     const token = req.cookies.jwt;
     if (token) {
         jwt.verify(token,'egg-book-secret', async (err, decodedToken) => {
             if(err) {
                 console.log(err.message);
                 res.locals.user = null;
-                
+               
                // res.locals.search = null;
                
                 next();
@@ -75,6 +75,37 @@ const checkUser = (req, res, next) => {
             }
         })
     } else {
+        res.locals.book = null;
+                const genresource = req.query.a;
+             
+              //  const genre = req.url.searchParams.get("a");
+               // console.log(genre);
+               let book = await Book.find({genre: genresource});
+               //console.log(JSON.parse(JSON.stringify(book)))
+               //console.log(book[1].title + book.length);
+              if (book!=null)
+              {
+                for (let i =0 ; i <=book.length; i++)
+                {
+                    res.locals.book = book;
+                    res.locals.bookcount = book.length;
+                }
+               
+              // console.log("This is me" + book);
+              }
+                else
+                {
+                
+                res.locals.book = null;
+             
+                }
+               
+               res.locals.genre = genresource;
+                
+            
+
+        
+      
         res.locals.user = null;
         next();
     }
