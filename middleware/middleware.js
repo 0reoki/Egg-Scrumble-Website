@@ -29,7 +29,9 @@ const checkUser = (req, res, next) => {
             if(err) {
                 console.log(err.message);
                 res.locals.user = null;
+                
                // res.locals.search = null;
+               
                 next();
             } else {
                 console.log(decodedToken);
@@ -42,16 +44,31 @@ const checkUser = (req, res, next) => {
                // console.log(genre);
                let book = await Book.find({genre: genresource});
                //console.log(JSON.parse(JSON.stringify(book)))
-              
-               res.locals.book = {book};
-              console.log(book);
+               //console.log(book[1].title + book.length);
+              if (book!=null)
+              {
+                for (let i =0 ; i <=book.length; i++)
+                {
+                    res.locals.book = book;
+                    res.locals.bookcount = book.length;
+                }
+               
+              // console.log("This is me" + book);
+              }
+                else
+                {
+                
+                res.locals.book = null;
+             
+                }
                
                res.locals.genre = genresource;
                 console.log(genresource);
-                
+              
+            
             if (err)
                 console.log(err);
-
+                
              //   let search = await Search.findById(decodedToken.id);
               //  res.locals.search = search;
                 next();
