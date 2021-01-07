@@ -62,13 +62,19 @@
                     <div id="bookmarkedFilesPanel" class="col-lg-9 col-md-9 col-sm-9 col-xs-12 col-12">
                         <% if (locals.book){ %>
                             <!--Raw result for view genre-->
-                            <h1 class="mt-5 pt-3"><%= genre %></h1>
+                            
         
                              
                                 <%for (var result in book){%>
                                 
                                  
                                   <%}%>
+                                  <% if (result !=null){ %>
+                                    <h1 class="mt-5 pt-3"><%= genre %></h1>
+                                    <% } else { %> 
+                                        <h1>No matches for the <%= genre %></h3>
+                                    <% } %> 
+                                  
                                   <%for (var i = 0 ;  i <= result ; i++){%>
                                     <%- include('partials/bookviews' , {book : book , count : i}) %>
                                     <%}%>
