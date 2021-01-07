@@ -9,9 +9,16 @@ const Book = require('../models/Book');
 const search_post = (req, res) => {
     const token = req.cookies.jwt;
     const {search} = req.body;
-    
+    if (token==null)
+    {
+        console.log("Welcome Guest")
+    }
+
+    if (token!=null)
+    {
     const decodedtoken = jwt.decode(token);
     var user_id = decodedtoken.id
+    
 User.findByIdAndUpdate(user_id, { $push:{ search_history: { $each: [search], $position: 0}}}, 
                             function (err, docs) { 
     if (err){ 
@@ -21,7 +28,9 @@ User.findByIdAndUpdate(user_id, { $push:{ search_history: { $each: [search], $po
         console.log("Updated Search History"); 
     }
     });
+}
    res.redirect('/');
+   
 }
 //not in use
 const viewbooks_post = (req, res,next) => {

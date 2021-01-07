@@ -59,7 +59,7 @@ const bookSchema = new mongoose.Schema({
         type: Number,
     },
 });
-
+bookSchema.index({title: 'text'},{ author: 'text'})
 const Book = mongoose.model('book', bookSchema);
 
 module.exports = Book;

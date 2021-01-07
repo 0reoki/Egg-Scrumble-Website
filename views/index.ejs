@@ -70,9 +70,14 @@
                                  
                                   <%}%>
                                   <% if (result !=null){ %>
-                                    <h1 class="mt-5 pt-3"><%= genre %></h1>
+                                    <h1 class="mt-5 pt-3"> <%= genre %></h1>
+                                    <% if (search !=null){ %>
+                                        <h1 class="mt-5 pt-3"> Matches '<%= search %>'</h1>
+                                        <% } else { %> 
+                                            
+                                        <% } %> 
                                     <% } else { %> 
-                                        <h1>No matches for the <%= genre %></h3>
+                                        <h1>No matches for <%= genre %> '<%= search %>'</h3>
                                     <% } %> 
                                   
                                   <%for (var i = 0 ;  i <= result ; i++){%>

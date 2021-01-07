@@ -321,8 +321,8 @@ async function SaveSearch_RedirectSearch()
        
         if (res.status == 200)
            {console.log("Searched");
-           console.log("Good Job " + search);
-           location.href =  "/?a=" + search;
+           //console.log("Good Job " + search);
+           location.href =  "/?s=" + search;
         }
         else {
             

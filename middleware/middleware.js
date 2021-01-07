@@ -39,10 +39,21 @@ const checkUser = async (req, res, next) => {
                 res.locals.user = user;
                 res.locals.book = null;
                 const genresource = req.query.a;
-             
+                const searchsource = req.query.s;
+                let book;
+                console.log(searchsource);
               //  const genre = req.url.searchParams.get("a");
                // console.log(genre);
-               let book = await Book.find({genre: genresource});
+               if (genresource!=null)
+               { book = await Book.find({genre: genresource});
+            }
+
+            //not yet done for search book
+               if (searchsource!=null)
+               {book = await Book.find({ title: { $regex: new RegExp(searchsource, "i") } });
+            console.log("search " + searchsource)
+            console.log(book)}
+            //
                //console.log(JSON.parse(JSON.stringify(book)))
                //console.log(book[1].title + book.length);
               if (book!=null)
@@ -63,7 +74,8 @@ const checkUser = async (req, res, next) => {
                 }
                
                res.locals.genre = genresource;
-                console.log(genresource);
+               res.locals.search = searchsource;
+            
               
             
             if (err)
@@ -77,10 +89,18 @@ const checkUser = async (req, res, next) => {
     } else {
         res.locals.book = null;
                 const genresource = req.query.a;
+                const searchsource = req.query.s;
+                let book;
              
               //  const genre = req.url.searchParams.get("a");
                // console.log(genre);
-               let book = await Book.find({genre: genresource});
+               if (genresource!=null)
+               { book = await Book.find({genre: genresource});
+            }
+               if (searchsource!=null)
+               {book = await Book.find({ title: { $regex: new RegExp(searchsource, "i") } })
+            console.log("search " + searchsource)
+            console.log(book)}
                //console.log(JSON.parse(JSON.stringify(book)))
                //console.log(book[1].title + book.length);
               if (book!=null)
@@ -101,7 +121,7 @@ const checkUser = async (req, res, next) => {
                 }
                
                res.locals.genre = genresource;
-                
+               res.locals.search = searchsource;
             
 
         
