@@ -59,7 +59,7 @@ const signup_post = async(req, res) => {
     const user_type = "Standard User";
 
     try {
-        const user = await User.create({ email, password, first_name, last_name, user_type});
+        const user = await User.create({ email, password, first_name, last_name, user_type });
         const token = createToken(user._id);
         res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });
         res.status(201).json({ user: user._id });
@@ -75,7 +75,7 @@ const login_post = async(req, res) => {
         const user = await User.login(email, password);
         const token = createToken(user._id);
         res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });
-        res.status(200).json({ user: user._id, user_type: user.user_type});
+        res.status(200).json({ user: user._id, user_type: user.user_type });
     } catch (err) {
         const errors = handleErrors(err);
         res.status(400).send({ errors });
@@ -91,8 +91,8 @@ const index_get = async(req, res) => {
     res.render('index', { title: 'Home' });
 }
 
-const admin_get = async(req,res) => {
-    res.render('adminindex', {title: 'Admin Home'});
+const admin_get = async(req, res) => {
+    res.render('adminindex', { title: 'Admin Home' });
 }
 
 const bookmarks_get = async(req, res) => {
@@ -122,7 +122,7 @@ const forgotpass_post = async(req, res) => {
                     user: 'eggbookemailer@gmail.com',
                     pass: 'Admin123!'
                 }
-                
+
             });
             // generates 4 digit code and save the generated code to db
             let code = Math.floor(1000 + Math.random() * 9000);
@@ -137,7 +137,7 @@ const forgotpass_post = async(req, res) => {
                 from: 'eggbookemailer@gmail.com_noreply',
                 to: `${email}`,
                 subject: 'Password Reset Request',
-                text: "Your Verification code is " + `${code}` 
+                text: "Your Verification code is " + `${code}`
 
             };
             //the sending process of the email
@@ -151,9 +151,9 @@ const forgotpass_post = async(req, res) => {
             });
             //process.env.NODE_TLS_REJECT_UNAUTHORIZED = "1";
             //redirects to the enter passcode
-            
-            
-            
+
+
+
             res.render('forgotpasscode', { email: email, title: "Enter Code" })
 
         } else {
@@ -173,28 +173,26 @@ const forgotpasscode_get = async(req, res) => {
 
 const forgotpasscode_post = async(req, res) => {
     const { email, code } = req.body;
-        //console.log(req);
-         //   const hash = encrypt(email);
-       //gets code in the db     
+    //console.log(req);
+    //   const hash = encrypt(email);
+    //gets code in the db     
     User.findOne({ email: email }, (err, doc) => {
         if (err) {
             console.log("Error");
         }
-    //compare the code entered by the user and in the db
+        //compare the code entered by the user and in the db
 
-        if (doc.code == code)
-        {
-    
-            
-            res.redirect(200, '/forgotpasscode'+'?nigma');
-        }
-        else
+        if (doc.code == code) {
+
+
+            res.redirect(200, '/forgotpasscode' + '?nigma');
+        } else
             res.redirect(400, '/forgotpasscode');
         //
     });
-    
 
-    
+
+
 
 }
 
@@ -205,44 +203,45 @@ const enterpassword_get = async(req, res) => {
 }
 
 const enterpassword_post = async(req, res) => {
-    const { email, code , newpass} = req.body;
-    
-   
-   //gets code in the db     
-User.findOne({ email: email }, (err, doc) => {
-    if (err) {
-        console.log("Error");
-    }
-//compare the code entered by the user and in the db
+    const { email, code, newpass } = req.body;
 
-    if (doc.code == code)
-    {   
-        const saltRounds = 10;
-        const hash = bcrypt.hashSync(newpass, saltRounds);
 
-        bcrypt.hash(newpass, saltRounds, function(err, hash) {
-            // Store hash in your password DB.
-        });
-        console.log(hash);
-        User.findOneAndUpdate({ email: email }, { $set: { password: hash } }, { new: true }, (err, doc) => {
-            if (err) {
-                console.log("Something wrong when updating data!");
-            }
-        });
-        res.redirect(200, '/login');
-    //change password
+    //gets code in the db     
+    User.findOne({ email: email }, (err, doc) => {
+        if (err) {
+            console.log("Error");
+        }
+        //compare the code entered by the user and in the db
 
-    }
-    else
-        res.redirect(400, '/forgotpasscode');
-    //
-});
+        if (doc.code == code) {
+            const saltRounds = 10;
+            const hash = bcrypt.hashSync(newpass, saltRounds);
+
+            bcrypt.hash(newpass, saltRounds, function(err, hash) {
+                // Store hash in your password DB.
+            });
+            console.log(hash);
+            User.findOneAndUpdate({ email: email }, { $set: { password: hash } }, { new: true }, (err, doc) => {
+                if (err) {
+                    console.log("Something wrong when updating data!");
+                }
+            });
+            res.redirect(200, '/login');
+            //change password
+
+        } else
+            res.redirect(400, '/forgotpasscode');
+        //
+    });
 }
 
-const cart_get = async (req,res) => {
-    res.render('cart', {title: 'Cart'});
+const cart_get = async(req, res) => {
+    res.render('cart', { title: 'Cart' });
 }
 
+const book_get = async(req, res) => {
+    res.render('book', { title: 'Book' });
+}
 
 module.exports = {
     signup_get,
@@ -251,7 +250,7 @@ module.exports = {
     login_post,
     logout_get,
     index_get,
-    admin_get, 
+    admin_get,
     bookmarks_get,
     owned_get,
     forgotpass_get,
@@ -260,5 +259,6 @@ module.exports = {
     forgotpasscode_post,
     enterpassword_get,
     enterpassword_post,
-    cart_get
+    cart_get,
+    book_get
 }

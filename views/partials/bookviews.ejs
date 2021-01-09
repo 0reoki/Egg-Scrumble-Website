@@ -1,18 +1,29 @@
-
 <section class="row row-flex">
     <div class="col-lg-12 col-md-6 col-sm-12 col-xs-12 col-12 mt-5">
         <div class="row row-flex items-style">
             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-6" id=cover>
-                <a href="http://www.google.com">
+                <a href="/book/?b=<%= book[count].id %>">
                     <img src="<%= book[count].cover %>"  alt="Book Cover" class="image-style" > 
                 </a>
             </div>
             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-6 col-6">
-                
-                <h5 class="book-title-style"><a style="font-size: 3vw!important;" href="#"> <%= book[count].title %> </a></h5>
-                <h5 class="author-style"><a href="#"> <%= book[count].author %> </a></h5>
-                <h5 class="author-style"> <%= book[count].price %> </h5>
-                <p> <%= book[count].description %><a href="#" class="readmore-style"> read more </a> </p>
+
+                <h5 class="book-title-style">
+                    <a style="font-size: 3vw!important;" href="#">
+                        <%= book[count].title %>
+                    </a>
+                </h5>
+                <h5 class="author-style">
+                    <a href="#">
+                        <%= book[count].author %>
+                    </a>
+                </h5>
+                <h5 class="author-style">
+                    PHP
+                    <%= book[count].price %>
+                </h5>
+                <p>
+                    <%= book[count].description %><a href="#" class="readmore-style"> read more </a> </p>
                 <div class="row text-left mt-auto">
                     <p class="ml-1"><a href="#" target="_blank" class="btn btn-sm btn-success">Bookmark</a></p>
                     <p class="ml-1"><a href="#" target="_blank" class="btn btn-sm btn-success">Buy</a></p>
@@ -21,4 +32,4 @@
             </div>
         </div>
     </div>
-    </section>
+</section>
