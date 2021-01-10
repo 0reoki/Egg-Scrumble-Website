@@ -192,15 +192,6 @@ async function PasswordReset() {
 }
 
 
-
-function ProcessDisplaysFPC() {
-    let parameters = location.search.substring(1).split("&");
-    let temp = parameters[0].split("=");
-    let receivedemail = unescape(temp[1]);
-    // alert(receivedemail);
-    document.getElementById("display").innerHTML = `${receivedemail}`;
-}
-
 async function ConfirmCode() {
 
 
@@ -335,35 +326,28 @@ async function SaveSearch_RedirectSearch()
    }
    
 }
-//preloads the book for the user
-async function LoadContent()
-{
 
-}
-//handles the redirection for recommendated books
-async function RecommendedRedirect(num)
-{
-    
-}
 
-async function LoadChosenGenre(genre)
+a
+async function AddToCart(bookId)
 {
-    console.log((genre))
+   // console.log("Book"+ bookId + ",User" + userId);
     try {
       
-        const res = await fetch('/viewbooks', {
+        const res = await fetch('/cart', {
             method: 'POST',
-            body: JSON.stringify({ genre }),
+            body: JSON.stringify({ bookId}),
             headers: { 'Content-Type': 'application/json' }
         });
-       
+       console.log(res);
         if (res.status == 200)
            {
-              // console.log(res.data);
-               location.assign(res.url);
-            }
-        else {
+               alert("Added To Cart");
            
+        }
+        else {
+            alert("Item already in cart");
+            
 
         }
     } catch (err) {

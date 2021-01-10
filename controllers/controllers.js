@@ -239,6 +239,42 @@ const cart_get = async(req, res) => {
     res.render('cart', { title: 'Cart' });
 }
 
+const cart_post = async(req, res) => {
+    const { bookId } = req.body;
+    const token = req.cookies.jwt;
+   // const { user } = req.locals;
+
+   if (token==null)
+   {
+       console.log("Welcome Guest")
+   }
+
+   if (token!=null)
+   {
+   const decodedtoken = jwt.decode(token);
+   var user_id = decodedtoken.id;
+   // console.log(user_id + bookId);
+   
+
+                
+    User.findByIdAndUpdate(user_id, { $addToSet: { cart : bookId } }, 
+                            function (err, docs) { 
+    if (err){
+        res.send(400); 
+        console.log(err) 
+    } 
+    else{ 
+        res.send(200);
+        console.log(docs); 
+       
+    }
+    });
+    
+   
+}
+  
+}
+
 const book_get = async(req, res) => {
     res.render('book', { title: 'Book' });
 }
@@ -260,5 +296,6 @@ module.exports = {
     enterpassword_get,
     enterpassword_post,
     cart_get,
-    book_get
+    book_get,
+    cart_post
 }

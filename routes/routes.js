@@ -19,6 +19,7 @@ router.post('/forgotpasscode', controller.forgotpasscode_post);
 router.get('/enterpassword', controller.enterpassword_get);
 router.post('/enterpassword', controller.enterpassword_post);
 router.get('/cart', controller.cart_get);
+router.post('/cart', controller.cart_post);
 router.get('/book', controller.book_get);
 router.post('/search', search_controller.search_post);
 router.post('/viewbooks', search_controller.viewbooks_post);

@@ -9,7 +9,7 @@
             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-6 col-6">
 
                 <h5 class="book-title-style">
-                    <a style="font-size: 3vw!important;" href="#">
+                    <a style="font-size: 3vw!important;" href="/book?b=<%= book[count].id %>">
                         <%= book[count].title %>
                     </a>
                 </h5>
@@ -25,9 +25,9 @@
                 <p>
                     <%= book[count].description %><a href="#" class="readmore-style"> read more </a> </p>
                 <div class="row text-left mt-auto">
-                    <p class="ml-1"><a href="#" target="_blank" class="btn btn-sm btn-success">Bookmark</a></p>
-                    <p class="ml-1"><a href="#" target="_blank" class="btn btn-sm btn-success">Buy</a></p>
-                    <p class="ml-1 mr-auto"><a href="#" target="_blank" class="btn btn-sm btn-success">Add to Cart</a></p>
+                    <p class="ml-1"><a onclick="Bookmark('<%= book[count].id %>')" target="_blank" class="btn btn-sm btn-success">Bookmark</a></p>
+                    <p class="ml-1"><a onclick="BuyBook('<%= book[count].id %>')" target="_blank" class="btn btn-sm btn-success">Buy</a></p>
+                    <p class="ml-1 mr-auto"><a onclick="AddToCart('<%= book[count].id %>')" target="_blank" class="btn btn-sm btn-success">Add to Cart</a></p>
                 </div>
             </div>
         </div>

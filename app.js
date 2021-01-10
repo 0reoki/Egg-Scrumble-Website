@@ -26,4 +26,5 @@ app.get('/book', viewProduct);
 app.get('/', (req, res) => res.render('index', { title: 'Home' }));
 app.get('/bookmarks', requireAuth, (req, res) => res.render('bookmarks', { title: 'Bookmarks' }));
 app.get('/owned', requireAuth, (req, res) => res.render('owned', { title: 'Owned' }));
+app.get('/cart', requireAuth, (req, res) => res.render('owned', { title: 'Cart' }));
 app.use(routes);

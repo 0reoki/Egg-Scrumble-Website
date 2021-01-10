@@ -34,6 +34,16 @@ const userSchema = new mongoose.Schema({
     search_history: {
         type: Array,
         reqrequired: [false, 'Searches']
+    },
+    cart: {
+        type: Array,
+        unique: true,
+        reqrequired: [false, 'Cart']
+    },
+    bookmarked: {
+        type: Array,
+        unique: true,
+        reqrequired: [false, 'Bookmark']
     }
 });
 

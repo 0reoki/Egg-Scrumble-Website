@@ -125,7 +125,7 @@ const checkUser = async(req, res, next) => {
     }
 };
 
-//displaying chosen products
+//displaying chosen products in a seperate page
 const viewProduct = async(req, res, next) => {
 
 
