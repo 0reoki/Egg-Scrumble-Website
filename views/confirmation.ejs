@@ -1,0 +1,104 @@
+<%- include('partials/head'); -%>
+
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <%- include('partials/sidebar'); -%>
+
+            <!-- Page Content -->
+            <div id="container">
+                <%- include('partials/navbar_v2'); -%>
+
+                <div id="content-container">
+                    <div style="min-height: inherit;" class="col-lg-10 col-md-10 col-sm-12 col-xs-12 col-12 container-fluid p-5">
+                        <section id="content-container-confirmation">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Order Information</th>
+                                        <th scope="col">Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="row-flex p-2">
+                                                <a href="http://www.google.com">
+                                                    <img src='src/img/book 1.jpg' alt="The King of Drugs"
+                                                        class="image-confirmation-style">
+                                                </a>
+                                            </div>
+                                            <div>
+                                                <h5 class="book-title-style"><a href="#"> The King of Drugs </a></h5>
+                                                <h5 class="author-style"><a href="#"> Nora Barret </a></h5>
+                                            </div>
+                                        </td>
+                                        <td>200 PHP</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="row-flex p-2">
+                                                <a href="http://www.google.com">
+                                                    <img src='src/img/book 1.jpg' alt="The King of Drugs"
+                                                        class="image-confirmation-style">
+                                                </a>
+                                            </div>
+                                            <div>
+                                                <h5 class="book-title-style"><a href="#"> The King of Drugs </a></h5>
+                                                <h5 class="author-style"><a href="#"> Nora Barret </a></h5>
+                                            </div>
+                                        </td>
+                                        <td>300 PHP</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="row-flex p-2">
+                                                <a href="http://www.google.com">
+                                                    <img src='src/img/book 1.jpg' alt="The King of Drugs"
+                                                        class="image-confirmation-style">
+                                                </a>
+                                            </div>
+                                            <div>
+                                                <h5 class="book-title-style"><a href="#"> The King of Drugs </a></h5>
+                                                <h5 class="author-style"><a href="#"> Nora Barret </a></h5>
+                                            </div>
+                                        </td>
+                                        <td>100 PHP</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                
+                            <div class="mt-3 mb-3">
+                                <label style="font-weight: 600;">
+                                    Payment Method:
+                                </label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="paymentMethod" id="creditCard" value="option1"
+                                        checked>
+                                    <label class="form-check-label" for="creditCard">
+                                        Credit Card
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="paymentMethod" id="virtualCard" value="option2">
+                                    <label class="form-check-label" for="virtualCard">
+                                        PayMaya/GCash
+                                    </label>
+                                </div>
+                            </div>
+                            <p style="font-weight: 600; text-align: right;">
+                                Total Price: 600 PHP
+                            </p>
+                            <div class="container-fluid p-2">
+                                <div class="row row-flex">
+                                    <!-- redirect to previous if clicked -->
+                                    <button type="button" class="btn-l btn-danger ml-4">Cancel</button>
+                
+                                    <button onclick="alert('The purchase has been made!')" type="button"
+                                        class="btn-l btn-success ml-auto mr-4">Confirm</button>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                </div>
+<%- include('partials/footer'); -%>
