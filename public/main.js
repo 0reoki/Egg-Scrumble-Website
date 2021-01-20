@@ -5,14 +5,14 @@
 
 
 //hover event to showed carted items
-let cart = document.getElementById(cart);
+//let cart = document.getElementById(cart);
 
-cart.addEventListener("mouseenter", function(event){
+//cart.addEventListener("mouseenter", function(event){
    
-    setTimeout(function() {
-      event.target.style.color = "";
-    }, 500);
-  }, false);
+   // setTimeout(function() {
+     // event.target.style.color = "";
+    //}, 500);
+  //}, false);
 //WIP not yet prio
 
 
@@ -328,7 +328,6 @@ async function SaveSearch_RedirectSearch()
 }
 
 
-a
 async function AddToCart(bookId)
 {
    // console.log("Book"+ bookId + ",User" + userId);
@@ -347,6 +346,34 @@ async function AddToCart(bookId)
         }
         else {
             alert("Item already in cart");
+            
+
+        }
+    } catch (err) {
+        console.log(err);
+    }
+};
+
+
+
+async function Bookmark(bookId)
+{
+    console.log(bookId);
+    try {
+      
+        const res = await fetch('/bookmarks', {
+            method: 'POST',
+            body: JSON.stringify({ bookId}),
+            headers: { 'Content-Type': 'application/json' }
+        });
+       console.log(res);
+        if (res.status == 200)
+           {
+               alert("Item Bookmarked");
+           
+        }
+        else {
+            alert("Item already bookmarked");
             
 
         }

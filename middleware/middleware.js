@@ -153,23 +153,65 @@ const viewProduct = async(req, res, next) => {
     //test
     }
 };
-
+//display items in cart
 const viewCart = async(req, res, next) => {
-  //  const token = req.cookies.jwt;
-   // const decodedtoken = jwt.decode(token);
-  //  var user_id = decodedtoken.id;
+    
+    const token = req.cookies.jwt;
+    const decodedtoken = jwt.decode(token);
+    var user_id = decodedtoken.id;
 
 
-    //if (bookID) {
-   //     let book = await Book.findById({ _id: bookID }).exec();
-  //      res.locals.book = book;
-  //  }
-  //  next();
+   
+       let user = await User.findById({_id: user_id});
+       
+       console.log(user.cart);
+       let cartItems = user.cart.length;
+    let book;
+       
+                 book = await Book.find({_id: { $in: user.cart}})
+                console.log(book);
+                res.locals.book = book;
+                
+            
+      
+   
+    
+    next();
 
-    //test
+
+
+
+};
+
+//display items in cart
+const viewBookmarked = async(req, res, next) => {
+    
+    const token = req.cookies.jwt;
+    const decodedtoken = jwt.decode(token);
+    var user_id = decodedtoken.id;
+
+
+   
+       let user = await User.findById({_id: user_id});
+       
+       console.log(user.bookmarked);
+       let cartItems = user.bookmarked.length;
+    let book;
+       
+                 book = await Book.find({_id: { $in: user.bookmarked}})
+                console.log(book);
+                res.locals.book = book;
+                
+            
+      
+   
+    
+    next();
+
+
 
 
 };
 
 
-module.exports = { requireAuth, checkUser, viewProduct , viewCart};
+module.exports = { requireAuth, checkUser, viewProduct , viewCart , viewBookmarked};

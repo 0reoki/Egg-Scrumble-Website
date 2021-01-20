@@ -11,6 +11,7 @@ router.get('/logout', controller.logout_get);
 router.get('/', controller.index_get);
 router.get('/admin', controller.admin_get);
 router.get('/bookmarks', controller.bookmarks_get);
+router.post('/bookmarks', controller.bookmarks_post);
 router.get('/owned', controller.owned_get);
 router.get('/forgotpass', controller.forgotpass_get);
 router.post('/forgotpass', controller.forgotpass_post);
