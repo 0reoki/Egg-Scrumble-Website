@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const routes = require('./routes/routes');
 const cookieParser = require('cookie-parser');
-const { requireAuth, checkUser, viewProduct } = require('./middleware/middleware');
+const { requireAuth, checkUser, viewProduct ,viewCart} = require('./middleware/middleware');
 const app = express();
 
 // middleware

@@ -134,11 +134,42 @@ const viewProduct = async(req, res, next) => {
         let book = await Book.findById({ _id: bookID }).exec();
         res.locals.book = book;
     }
+    if (searchsource != null) {
+        book = await Book.find({ title: { $regex: new RegExp(searchsource, "i") } });
+        console.log("search " + searchsource)
+        console.log(book)
+    }
+    //
+    //console.log(JSON.parse(JSON.stringify(book)))
+    //console.log(book[1].title + book.length);
+    if (book != null) {
+        for (let i = 0; i <= book.length; i++) {
+            res.locals.book = book;
+            res.locals.bookcount = book.length;
+        }
+
     next();
 
     //test
+    }
+};
+
+const viewCart = async(req, res, next) => {
+  //  const token = req.cookies.jwt;
+   // const decodedtoken = jwt.decode(token);
+  //  var user_id = decodedtoken.id;
+
+
+    //if (bookID) {
+   //     let book = await Book.findById({ _id: bookID }).exec();
+  //      res.locals.book = book;
+  //  }
+  //  next();
+
+    //test
+
 
 };
 
 
-module.exports = { requireAuth, checkUser, viewProduct };
+module.exports = { requireAuth, checkUser, viewProduct , viewCart};
