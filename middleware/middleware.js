@@ -127,32 +127,36 @@ const checkUser = async(req, res, next) => {
 
 //displaying chosen products in a seperate page
 const viewProduct = async(req, res, next) => {
-
-
     const bookID = req.query.b;
     if (bookID) {
         let book = await Book.findById({ _id: bookID }).exec();
         res.locals.book = book;
+        if (book != null) {
+            for (let i = 0; i <= book.length; i++) {
+                res.locals.book = book;
+                res.locals.bookcount = book.length;
+            }
+        next();
+        }    
     }
-    if (searchsource != null) {
-        book = await Book.find({ title: { $regex: new RegExp(searchsource, "i") } });
-        console.log("search " + searchsource)
-        console.log(book)
-    }
+}
+    // if (searchsource != null) {
+    //     book = await Book.find({ title: { $regex: new RegExp(bookID, "i") } });
+    //     console.log("search " + searchsource)
+    //     console.log(book)
+    // }
     //
     //console.log(JSON.parse(JSON.stringify(book)))
     //console.log(book[1].title + book.length);
-    if (book != null) {
-        for (let i = 0; i <= book.length; i++) {
-            res.locals.book = book;
-            res.locals.bookcount = book.length;
-        }
-
-    next();
-
-    //test
-    }
-};
+    // if (book != null) {
+    //     for (let i = 0; i <= book.length; i++) {
+    //         res.locals.book = book;
+    //         res.locals.bookcount = book.length;
+    //     }
+    // next();
+    // //test
+    // }
+// };
 //display items in cart
 const viewCart = async(req, res, next) => {
     
