@@ -120,7 +120,7 @@ const forgotpass_post = async(req, res) => {
                 service: 'gmail',
                 auth: {
                     user: 'eggbookemailer@gmail.com',
-                    pass: 'Admin123!'
+                    pass: 'Emailer123!'
                 }
 
             });
