@@ -42,9 +42,14 @@
                                                     <a href="#" class="readmore-style"> </a>
                                             </p>
                                             <div class="row text-left mt-auto">
-                                                <p class="ml-1"><a href="#" target="_blank" class="btn btn-sm btn-success">Bookmark</a></p>
-                                                <p class="ml-1"><a href="#" target="_blank" class="btn btn-sm btn-success">Buy</a></p>
-                                                <p class="ml-1 mr-auto"><a href="#" target="_blank" class="btn btn-sm btn-success">Add to Cart</a></p>
+
+                                                <p class="ml-1"><a onclick="Bookmark('<%= book.id %>')" target="_blank"
+                                                        class="btn btn-sm btn-success">Bookmark</a></p>
+                                                <p class="ml-1"><a onclick="BuyBook('<%= book.id %>')" target="_blank"
+                                                        class="btn btn-sm btn-success">Buy</a></p>
+                                                <p class="ml-1 mr-auto"><a onclick="AddToCart('<%= book.id %>')"
+                                                        target="_blank" class="btn btn-sm btn-success">Add to Cart</a>
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
